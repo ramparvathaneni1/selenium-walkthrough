@@ -17,10 +17,8 @@ Let's create a new directory that will hold our testing code, `cd` into it and i
 ```
 mkdir selenium-tests
 cd selenium-tests
-npm init
+npm init -y
 ```
-
-Just hit enter for all the `npm init` prompts.  For now it doesn't matter what those values are.
 
 Now install the `selenium-webdriver` package for this project, so we can use it in our tests:
 
@@ -32,7 +30,7 @@ npm install selenium-webdriver
 
 ### Requiring Selenium:
 
-We're going to write a test that goes to `http://wikipedia.org`, locates the search box on the home page, enters "javascript" in the input field, submits the search form and allows the browser to be taken to the JavaScript article.  First, though we need create a file for our tests:
+We're going to write a test that goes to `https://www.wikipedia.org/`, locates the search box on the home page, enters "javascript" in the input field, submits the search form and allows the browser to be taken to the JavaScript article.  First, though we need create a file for our tests:
 
 ```
 touch search-wikipedia.js
@@ -135,7 +133,7 @@ element.sendKeys('javascript');
 const formSelection = selenium.By.id('search-form'); //add this line
 ```
 
-Again get a handle on the elemnt:
+Again get a handle on the element:
 
 ```javascript
 const formSelection = selenium.By.id('search-form');
