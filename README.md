@@ -239,3 +239,40 @@ const email = prompt('What is your email?');
 const pwd = prompt.hide('What is your password?');
 console.log(email, pwd);
 ```
+
+<details>
+	<summary>Facebook Selenium Solution</summary>
+	
+	```js
+	const selenium = require('selenium-webdriver');
+	const prompt = require('prompt-sync')();
+
+	const main = async ()=> {
+	    const driver = await new selenium.Builder().forBrowser('chrome').build();
+	    await driver.get('https://www.facebook.com/');
+
+
+	    const selectionEmail = selenium.By.id('email');
+	    const emailElement = driver.findElement(selectionEmail);
+
+	    const selectionPassword = selenium.By.id('pass');
+	    const passwordElement = driver.findElement(selectionPassword);
+
+	    const buttonSelection = selenium.By.name('login');
+	    const buttonElement = driver.findElement(buttonSelection);
+
+	    const email = prompt('What is your email?');
+	    const pwd = prompt.hide('What is your password?');
+	    console.log(email, pwd);
+
+	    emailElement.sendKeys(email)
+	    passwordElement.sendKeys(pwd)
+	    buttonElement.submit()
+
+	}
+
+	main();
+	```
+
+
+</details>
